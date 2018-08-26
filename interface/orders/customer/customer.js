@@ -1,7 +1,7 @@
 const promise=require('../../../Promise/promise')
 module.exports={
 
-    //用户查询自己发布的信息
+    //用户查询自己发布的订单
     selectLogByUserOpenid:function(req,res){
         function sel(req,res){            
             var openid=req.query.openid;
@@ -15,7 +15,7 @@ module.exports={
         sel(req,res);
     },
 
-    //用户删除自己发布的信息
+    //用户删除自己发布的订单
     deleteLogByMeNumber:function(req,res){
         function sel(req,res){            
             var number=req.query.number;
@@ -30,7 +30,7 @@ module.exports={
         sel(req,res);
     },
 
-    //用户更新自己发布的信息
+    //用户更新自己发布的订单
     updateLogByMeNumberOpenid:function(req,res){
         function sel(req,res){           
             var number=req.query.number;                
@@ -52,5 +52,40 @@ module.exports={
             res.send(result);
         }
         sel(req,res);
-    }
+    },
+
+    //用户催单 
+    reMinder:function(req,res){
+        //do something...
+    },
+
+    //用户联系大使
+    contactTaker:function(req,res){
+        function sel(req,res){            
+            var number=req.query.number;
+            var sql=`select tak_phone from orders where number="${number}";`;
+            fun(sql);
+        }
+        async function fun(sql) {
+            const result = await promise.dbupAsync(sql);
+            res.send(result);
+        }
+        sel(req,res);
+    },
+
+    //用户发表评论
+    commitCallback:function(req,res){
+        function sel(req,res){            
+            var number=req.query.number;
+            var cus_callback=req.query.cus_callback;
+            var sql=`UPDATE orders SET cus_callback="${cus_callback}" WHERE number="${number}";`;
+            fun(sql);
+        }
+        async function fun(sql) {
+            const result = await promise.dbupAsync(sql);
+            res.send(result);
+        }
+        sel(req,res);
+    },
+
 }

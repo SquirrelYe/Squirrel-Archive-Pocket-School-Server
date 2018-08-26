@@ -93,6 +93,9 @@ server.use('/customer',function(req,res){        //用户对所发布订单进�
     if(req.query.judge==0)  customer.selectLogByUserOpenid(req,res);
     if(req.query.judge==1)  customer.deleteLogByMeNumber(req,res);    
     if(req.query.judge==2)  customer.updateLogByMeNumberOpenid(req,res);
+    if(req.query.judge==3)  customer.reMinder(req,res);
+    if(req.query.judge==4)  customer.contactTaker(req,res);
+    if(req.query.judge==5)  customer.commitCallback(req,res);
     if(req.query.judge==null) res.redirect('./WWW/404/QYZQ.html');
 });
 
@@ -101,6 +104,8 @@ server.use('/taker',function(req,res){        //大使对所接收订单进行�
     if(req.query.judge==1)  taker.deleteOrdByOrderNumber(req,res);  
     if(req.query.judge==2)  taker.selectOrdByTakerCondition(req,res);   
     if(req.query.judge==3)  taker.setOrderAccept(req,res);  
+    if(req.query.judge==4)  taker.setOrderArrive(req,res);  
+    if(req.query.judge==5)  taker.setOrderCallBack(req,res);  
     if(req.query.judge==null) res.redirect('./WWW/404/QYZQ.html');
 });
 
