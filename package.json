@@ -1,0 +1,15 @@
+{
+  "name": "pocket_school",
+  "version": "1.0.0",
+  "description": "布袋校园校园生活应用……",
+  "main": "mysql.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "校园"
+  ],
+  "author": "叶泫",
+  "license": "ISC"
+}

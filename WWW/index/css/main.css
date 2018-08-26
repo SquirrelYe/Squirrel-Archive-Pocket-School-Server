@@ -1,0 +1,152 @@
+
+			#i1{
+				width: 70%;
+				float: left;
+			}
+			#i2{
+				font-size: 30px;
+				color: white;
+				align-self: flex-start;
+				text-align: left;
+			}
+			
+			#nav{
+				height: 40px;
+				width: 100%;
+				background-color: white;
+			}
+			.hr1{
+				border: solid 1px darkgray;
+			}
+			.s1{
+				width: 10%;
+				height: 100%;
+				text-align: center;
+				color: black;
+				margin-top: 40px;
+				font-size: 15px;
+				font-style:initial;
+				font-family:"Comic Sans MS";
+				float: left;
+			}
+			#s2{
+				float: right;
+				width: 20%;
+				height: 100%;
+				text-align: center;
+				color: black;
+				margin-top: 40px;
+				margin-right: 40px;
+				font-size: 15px;
+				font-family:"Comic Sans MS";
+			}
+			#y1{
+				margin-top: 30px;
+				font-size: 40px;
+				font-family: "楷体";
+				text-align: center;
+			}
+			#y1_2{
+				text-align: center;
+				font-family: "微软雅黑";
+				font-size: 16px;
+				margin-top: 10px;
+			}
+			.p1{
+				width: 94%;
+				height: 400px;
+				padding-top: 20px;
+				margin-left: 3%;
+				
+			}
+			
+			#y1_3{
+				/*background:url(img/p2.jpg);设置div标签的背景图片*/
+				width: 100%;
+				padding-top: 10px;
+			}
+			.y1_4{
+				
+				width: 100%;
+						
+			}
+			.y1_4 img{
+				float:left;
+				padding-left:4%;
+				margin-top: 10px;
+			}
+			.y1_4 div{
+				text-align: center;
+				font-family: "华文楷体";
+				font-size: 16px;
+				padding-top: 17%;
+			}
+			
+			/*分块，k1*/
+			.k1{
+				width: 70%;
+				float: left;
+			}
+			.t1{
+				text-align: center;
+				font-size: 26px;
+				font-family: "Comic Sans MS";
+			}
+			.t1_1{
+				font-size: 16px;
+				text-align: center;
+				padding-top: 10px;
+				font-style: inherit;
+				padding-left: 10px;
+			}
+			.t2_2{
+				text-align: center;
+				font-family: "华文楷体";
+				font-size: 16px;
+				padding-top: 17%;
+			}
+			
+			.t2_1{
+				margin-top: 5%;
+				
+			}
+			
+			
+			/*分块，k2*/
+			.k2{
+				float: right;
+				width: 30%;
+			}
+			.x1{
+				font-size: 15px;
+				font-family: "Comic Sans MS";
+			}
+			.x1_1{
+				padding-top: 30px;
+				padding-right: 10%;
+			}
+			.x1_1 img{
+				float:left;
+				margin-top: 10px;
+			}
+			.x1_1 div{
+				
+				text-align: center;
+				font-family: "华文楷体";
+				font-size: 16px;
+				
+				margin-top: 10%;			
+			}
+			.bot{
+			width: 100%;
+			text-align: center;
+			margin-top: 20px;
+			float: left;
+			}
+			.t2{
+				text-align: center;
+				font-size: 26px;
+				font-family: "Comic Sans MS";
+				margin-top: 20px;
+			}
+		
