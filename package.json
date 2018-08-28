@@ -11,5 +11,23 @@
     "校园"
   ],
   "author": "叶泫",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "express": "*",
+    "body-parser": "*",
+    "multer": "*",
+    "fs": "*",
+    "path": "*",
+    "request": "*",
+    "mysql": "*"
+  },
+  "dependencies": {
+    "express": "*",
+    "body-parser": "*",
+    "multer": "*",
+    "fs": "*",
+    "path": "*",
+    "request": "*",
+    "mysql": "*"
+  }
 }
