@@ -5,8 +5,8 @@ module.exports={
     //大使查询自己接收的订单
     selectOrdByTakerOpenid:function(req,res){
         function sel(req,res){            
-            var openid_taker=req.query.openid_taker;
-            var sql=`select * from orders where openid_taker="${openid_taker}";`;
+            var openid_tak=req.query.openid_tak;
+            var sql=`select * from orders where openid_tak="${openid_tak}";`;
             fun(sql);
         }
         async function fun(sql) {
@@ -16,11 +16,12 @@ module.exports={
         sel(req,res);
     },
 
-    //大使查询自己接收的订单 by condition
-    selectOrdByTakerCondition:function(req,res){
+    //大使查询自己接收的订单 by conditions
+    selectOrdByTakerconditions:function(req,res){
         function sel(req,res){            
-            var condition=req.query.condition;
-            var sql=`select * from orders where condition="${condition}";`;
+            var openid_tak=req.query.openid_tak;
+            var conditions=req.query.conditions;
+            var sql=`select * from orders where openid_tak="${openid_tak}" and conditions="${conditions}";`;
             fun(sql);
         }
         async function fun(sql) {
@@ -34,8 +35,8 @@ module.exports={
     deleteOrdByOrderNumber:function(req,res){
         function sel(req,res){            
             var number=req.query.number;
-            var openid_taker=req.query.openid_taker;
-            var sql=`delete from orders where number="${number}" and openid_taker="${openid_taker}";`;
+            var openid_tak=req.query.openid_tak;
+            var sql=`delete from orders where number="${number}" and openid_tak="${openid_tak}";`;
             fun(sql,req,res);
         }
         async function fun(sql,req,res) {

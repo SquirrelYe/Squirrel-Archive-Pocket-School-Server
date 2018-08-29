@@ -4,8 +4,24 @@ module.exports={
     //用户查询自己发布的订单
     selectLogByUserOpenid:function(req,res){
         function sel(req,res){            
-            var openid=req.query.openid;
-            var sql=`select * from logistics where openid="${openid}";`;
+            var openid_cus=req.query.openid_cus;
+            var sql=`select * from orders where openid_cus="${openid_cus}";`;
+            fun(sql);
+        }
+        async function fun(sql) {
+            const result = await promise.dbupAsync(sql);
+            res.send(result);
+        }
+        sel(req,res);
+    },
+
+    //用户查询自己发布的订单 by openid conditions
+    selectLogByUserOpenidConditions:function(req,res){
+        function sel(req,res){            
+            var openid_cus=req.query.openid_cus;
+            var conditions=req.query.conditions;
+            var sql=`select * from orders where openid_cus="${openid_cus}" and conditions="${conditions}";`;
+            //console.log(sql)
             fun(sql);
         }
         async function fun(sql) {

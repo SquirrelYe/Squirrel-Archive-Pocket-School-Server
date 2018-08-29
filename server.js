@@ -91,11 +91,12 @@ server.use('/openid_unionid',function(req,res){        //前台调用，返还op
 
 server.use('/customer',function(req,res){        //用户对所发布订单进行管理
     if(req.query.judge==0)  customer.selectLogByUserOpenid(req,res);
-    if(req.query.judge==1)  customer.deleteLogByMeNumber(req,res);    
-    if(req.query.judge==2)  customer.updateLogByMeNumberOpenid(req,res);
-    if(req.query.judge==3)  customer.reMinder(req,res);
-    if(req.query.judge==4)  customer.contactTaker(req,res);
-    if(req.query.judge==5)  customer.commitCallback(req,res);
+    if(req.query.judge==1)  customer.selectLogByUserOpenidConditions(req,res);
+    if(req.query.judge==2)  customer.deleteLogByMeNumber(req,res);    
+    if(req.query.judge==3)  customer.updateLogByMeNumberOpenid(req,res);
+    if(req.query.judge==4)  customer.reMinder(req,res);
+    if(req.query.judge==5)  customer.contactTaker(req,res);
+    if(req.query.judge==6)  customer.commitCallback(req,res);
     if(req.query.judge==null) res.redirect('./WWW/404/QYZQ.html');
 });
 
