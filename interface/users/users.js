@@ -38,6 +38,7 @@ module.exports={
             var city=req.query.city;
             var sign=req.query.sign;  
             var sql=`insert into users values("${openid}","${name}","${school}","${icon_url}","${age}","${love}","${birthday}","${city}","${sign}");`;
+            console.log(sql)
             fun(sql);
         }
         async function fun(sql) {

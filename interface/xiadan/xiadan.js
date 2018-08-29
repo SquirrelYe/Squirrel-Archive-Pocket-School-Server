@@ -10,7 +10,7 @@ module.exports={
         async function fun(sql) {
             const result = await promise.dbupAsync(sql);
             //console.log(JSON.parse(result).success)   当查询不到最后一个number时
-            if(result.length==0){                
+            if(result.length==1){                
                 var number=result[0].number+1;                
                 var openid=req.query.openid;              
                 var type=req.query.type;
@@ -19,7 +19,8 @@ module.exports={
                 var gander=req.query.gander;
                 var location=req.query.location;
                 var details=req.query.details;
-                var conditions=req.query.conditions;
+                var conditions=req.query.conditions;                
+                var sum=req.query.sum;
                 var money=req.query.money;
                 var time=req.query.time;
                 var log_from=req.query.log_from;
@@ -31,8 +32,9 @@ module.exports={
                 var key_phone=req.query.key_phone;
 
                 var sql1=`insert into logistics values 
-                         ("${number}","${openid}","${type}","${icon_url}","${nickname}","${gander}","${location}","${details}","${conditions}","${money}"
+                         ("${number}","${openid}","${type}","${icon_url}","${nickname}","${gander}","${location}","${details}","${conditions}","${sum}","${money}"
                          ,"${time}","${log_from}","${log_to}","${others}","${time_log}","${key_info}","${key_name}","${key_phone}");`;
+                         console.log(sql1)
                 const result1 = await promise.dbupAsync(sql1);    
                 res.send(result1);
             }else{

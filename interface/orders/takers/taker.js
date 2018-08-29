@@ -42,12 +42,26 @@ module.exports={
         async function fun(sql,req,res) {
             var number=req.query.number;
             const result = await promise.dbupAsync(sql);
-            res.send(result);
+            //res.send(result);
             if(result.affectedRows==1){                
                 var sql1=`UPDATE logistics SET conditions="1" WHERE number="${number}";`;
                 const result1 = await promise.dbupAsync(sql1);
-                res.send(result);
+                res.send(result1);
             }
+        }
+        sel(req,res);
+    },
+
+    //大使联系用户
+    contactCustomer:function(req,res){
+        function sel(req,res){            
+            var number=req.query.number;
+            var sql=`select cus_phone from orders where number="${number}";`;
+            fun(sql);
+        }
+        async function fun(sql) {
+            const result = await promise.dbupAsync(sql);
+            res.send(result);
         }
         sel(req,res);
     },

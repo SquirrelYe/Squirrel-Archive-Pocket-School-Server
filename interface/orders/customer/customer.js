@@ -1,4 +1,5 @@
-const promise=require('../../../Promise/promise')
+const promise=require('../../../Promise/promise');
+const time=require('../../../time/time');
 module.exports={
 
     //用户查询自己发布的订单
@@ -36,7 +37,7 @@ module.exports={
         function sel(req,res){            
             var number=req.query.number;
             var openid=req.query.openid;
-            var sql=`delete from logistics where number="${number}" and openid="${openid}";`;
+            var sql=`update logistics set conditions="-1" where number="${number}" and openid="${openid}";`;
             fun(sql);
         }
         async function fun(sql) {
@@ -46,7 +47,7 @@ module.exports={
         sel(req,res);
     },
 
-    //用户更新自己发布的订单
+    //用户更新自己发布的订单  暂时不启用
     updateLogByMeNumberOpenid:function(req,res){
         function sel(req,res){           
             var number=req.query.number;                
@@ -72,7 +73,18 @@ module.exports={
 
     //用户催单 
     reMinder:function(req,res){
-        //do something...
+        //do something...              
+        function sel(req,res){            
+            var openid=req.query.openid;
+            var sql=`select e_mail,phone from authenticate where openid="${openid}";`;
+            fun(sql);
+        }
+        async function fun(sql) {
+            const result = await promise.dbupAsync(sql);
+            res.send(result);
+        }
+        sel(req,res); 
+
     },
 
     //用户联系大使
@@ -94,7 +106,7 @@ module.exports={
         function sel(req,res){            
             var number=req.query.number;
             var cus_callback=req.query.cus_callback;
-            var sql=`UPDATE orders SET cus_callback="${cus_callback}" WHERE number="${number}";`;
+            var sql=`UPDATE orders SET cus_callback="${cus_callback}",callback_time="${time.getTime()}" WHERE number="${number}";`;
             fun(sql);
         }
         async function fun(sql) {

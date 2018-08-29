@@ -29,7 +29,7 @@ module.exports={
     //查询all物流信息 
     selectAll:function(req,res){
         function sel(req,res){            
-            var sql=`select * from logistics;`;
+            var sql=`select * from logistics order by number desc;`;
             fun(sql);
         }
         async function fun(sql) {
