@@ -1,18 +1,20 @@
-const promise=require('../../Promise/promise')
+const promise=require('../../Promise/promise');
+const time=require('../../time/time');
 module.exports={
     //更改订单的flag & 将订单添加到数据库
     update:function(req,res){
         function upd(req,res){
             var number=req.query.number;
+            var types=req.query.types;
             var openid_cus=req.query.openid_cus;
             var openid_tak=req.query.openid_tak;
             var conditions=req.query.conditions;
-            var get_time=req.query.get_time;
             var cus_phone=req.query.cus_phone;
             var tak_phone=req.query.tak_phone;
             var sql=`UPDATE logistics SET conditions=2 WHERE number="${number}";`;
-            var sql1=`insert into orders("number","openid_cus","openid_tak","conditions","get_time","cus_phone","tak_phone")
-             values("${number}","${openid_cus}","${openid_tak}","${conditions}","${get_time}","${cus_phone}","${tak_phone}");`;
+            var sql1=`insert into orders(number,types,openid_cus,openid_tak,conditions,get_time,cus_phone,tak_phone)
+             values("${number}","${types}","${openid_cus}","${openid_tak}","${conditions}","${time.getTime()}","${cus_phone}","${tak_phone}");`;
+             console.log(sql1)
             upAllDB(sql,sql1);
         };
         async function upAllDB(sql,sql1) {

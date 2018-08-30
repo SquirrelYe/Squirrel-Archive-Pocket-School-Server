@@ -1,4 +1,7 @@
 const promise=require('../../Promise/promise')
+const fs=require('fs');
+const path=require('path');
+var pathlib=path;
 module.exports={
     
     insert:function(req,res){
@@ -83,5 +86,44 @@ module.exports={
             }
         }
         sel(req,res);
+    },
+
+    UploadRZIcon1:function(req,res){
+        console.log(req.files);
+        var icon_name=req.query.openid
+        //获取原始文件扩展名
+        var newName=`Authenticate/Icon/${icon_name}`+pathlib.parse(req.files[0].originalname).ext;
+        console.log(pathlib.parse(req.files[0].originalname).ext);      //输出文件后缀
+        console.log("--->",newName);
+        fs.rename(req.files[0].path,newName,function(err){
+            if(err){
+                console.log("上传失败");
+                res.send(`{ "file upload success ?": "flase" ,"path":"${newName}" }`)
+            }else{
+                console.log("上传成功");
+                res.send(`{ "file upload success ?": "true" ,"path":"${newName}" }`)
+            }
+        })
+    },
+
+    UploadRZIcon2:function(req,res){
+        console.log(req.files);
+        var icon_name=req.query.openid
+        var old_path=req.query.old_path
+        fs.unlinkSync(old_path); // Sync 表示是同步方法
+        console.log('成功删除了 /tmp/shiyanlou');
+        //获取原始文件扩展名
+        var newName=`Authenticate/Icon/${icon_name}`+pathlib.parse(req.files[0].originalname).ext;
+        console.log(pathlib.parse(req.files[0].originalname).ext);      //输出文件后缀
+        console.log("--->",newName);
+        fs.rename(req.files[0].path,newName,function(err){
+            if(err){
+                console.log("上传失败");
+                res.send(`{ "file upload success ?": "flase" ,"path":"${newName}" }`)
+            }else{
+                console.log("上传成功");
+                res.send(`{ "file upload success ?": "true" ,"path":"${newName}" }`)
+            }
+        })
     }
 }

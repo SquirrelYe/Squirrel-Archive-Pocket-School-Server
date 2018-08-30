@@ -4,7 +4,7 @@ module.exports={
     selectOneByType:function(req,res){
         function sel(req,res){            
             var type=req.query.type;
-            var sql=`select * from logistics where type="${type}";`;
+            var sql=`select * from logistics where type="${type}" order by number desc;`;
             fun(sql);
         }
         async function fun(sql) {

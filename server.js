@@ -13,11 +13,18 @@ const customer=require('./interface/orders/customer/customer')
 const taker=require('./interface/orders/takers/taker')
 const schoolChoose=require('./interface/schoolChoose/schoolChoose')
 
-var objmulter=multer({dest:"./www/upload"});    //dest指定上传文件地址
+var objmulter=multer({dest:"./Authenticate/Icon"});    //dest指定上传文件地址
 var pathlib=path;
 
 var server=express();
 server.listen(11111);
+
+process.on('uncaughtException', function (err) {
+    //打印出错误
+    console.log(err);
+    //打印出错误的调用栈方便调试
+    console.log(err.stack);
+  });
 
 server.use(bodyParser.urlencoded({extended:false}));
 server.use(objmulter.any());
@@ -37,6 +44,8 @@ server.use('/authenticate',function(req,res){   //权限认证
     if(req.query.judge==3) authenticate.selectOneByName(req,res); 
     if(req.query.judge==4) authenticate.selectOneByXuehao(req,res); 
     if(req.query.judge==5) authenticate.selectOneBySchool(req,res); 
+    if(req.query.judge==6) authenticate.UploadRZIcon1(req,res); 
+    if(req.query.judge==7) authenticate.UploadRZIcon2(req,res); 
     if(req.query.judge==null) res.redirect('./WWW/404/QYZQ.html');
 });
 
@@ -67,21 +76,8 @@ server.use('/yx',function(req,res){        //前台调用，返还订单接口
     if(req.query.judge==null) res.redirect('./WWW/404/QYZQ.html');
 });
 
-server.post('/UploadServlet',function(req,res){     //获取前台用户上传的头像订单
-    console.log(req.files);
-    //获取原始文件扩展名
-    var newName=req.files[0].path+pathlib.parse(req.files[0].originalname).ext;
-    console.log(pathlib.parse(req.files[0].originalname).ext);      //输出文件后缀
-    console.log("--->",newName);
-    fs.rename(req.files[0].path,newName,function(err){
-        if(err){
-            console.log("上传失败");
-            res.send(JSON.parse(`{ "file upload success ?": "flase" }`))
-        }else{
-            console.log("上传成功");
-            res.send(JSON.parse(`{ "file upload success ?": "true" }`))
-        }
-    })
+server.post('/UploadRZIcon',function(req,res){     //获取前台用户上传的头像订单
+    
 });
 
 server.use('/openid_unionid',function(req,res){        //前台调用，返还openid_unionid
