@@ -12,6 +12,7 @@ const openid_unionid=require('./interface/openid_unionid/openid_unionid')
 const customer=require('./interface/orders/customer/customer')
 const taker=require('./interface/orders/takers/taker')
 const schoolChoose=require('./interface/schoolChoose/schoolChoose')
+const mail = require('./interface/mail/mail')
 
 var objmulter=multer({dest:"./Authenticate/Icon"});    //dest指定上传文件地址
 var pathlib=path;
@@ -110,5 +111,10 @@ server.use('/taker',function(req,res){        //大使对所接收订单进行�
 server.use('/school_choose',function(req,res){        //大使对所接收订单进行管理
     if(req.query.judge==0)  schoolChoose.selectSchoolByUserOpenid(req,res);
     if(req.query.judge==1)  schoolChoose.read(req,res);   
+    if(req.query.judge==null) res.redirect('./WWW/404/QYZQ.html');
+});
+
+server.use('/mail',function(req,res){        //邮箱验证
+    if(req.query.judge==0)  mail.register(req,res); 
     if(req.query.judge==null) res.redirect('./WWW/404/QYZQ.html');
 });

@@ -6,14 +6,16 @@ module.exports={
     
     insert:function(req,res){
         function ins(req,res){
+            var type=req.query.type;
             var openid=req.query.openid;
             var name=req.query.name;
-            var xuehao=req.query.xuehao;
             var school=req.query.school;
-            var college=req.query.college;
-            var zhuanye=req.query.zhuanye;
-            var nianji=req.query.nianji;
-            var sql=`insert into authenticate values("${openid}","${name}","${xuehao}","${school}","${college}","${zhuanye}","${nianji}");`;
+            var xuehao=req.query.xuehao;
+            var phone=req.query.phone;
+            var e_mail=req.query.e_mail;
+            var rz_icon=req.query.rz_icon;
+            
+            var sql=`insert into authenticate values("${type}","${openid}","${name}","${school}","${xuehao}","${phone}","${e_mail}","${rz_icon}");`;
             fun(sql);
             async function fun(sql) {
                 const result = await promise.dbupAsync(sql);
