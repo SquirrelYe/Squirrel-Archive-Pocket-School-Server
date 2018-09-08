@@ -15,7 +15,7 @@ module.exports={
             request(url,function(error,response,body){
                 if(!error && response.statusCode == 200){
                     //输出返回的内容
-                    console.log("appid --->",appid);
+                    //console.log("appid --->",appid);
                     res.send(body);
                 }
             });

@@ -63,5 +63,19 @@ module.exports={
             res.send(result);
         }
         sel(req,res);
+    },
+    //查询limit物流信息 
+    selectLimitPage:function(req,res){
+        var from = req.query.from;
+        var offSet = req.query.offSet;
+        function sel(req,res){            
+            var sql=`select * from logistics order by number desc limit ${from},${offSet};`;
+            fun(sql);
+        }
+        async function fun(sql) {
+            const result = await promise.dbupAsync(sql);
+            res.send(result);
+        }
+        sel(req,res);
     }
 }

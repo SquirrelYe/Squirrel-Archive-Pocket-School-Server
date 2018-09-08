@@ -59,13 +59,14 @@ server.use('/jiedan',function(req,res){     //用户下单
 server.use('/users',function(req,res){     //用户订单操作
     if(req.query.judge==0)  users.selectOneByOpenid(req,res);
     if(req.query.judge==1)  users.selectAllUsers(req,res);    
-    if(req.query.judge==2)  users.insertUsers(req,res);
+    if(req.query.judge==2)  users.insertUsers(req,res);   
+    if(req.query.judge==3)  users.selectSchoolByOpenid(req,res);
     if(req.query.judge==null) res.redirect('./WWW/404/QYZQ.html');
 });
 
 server.use('/xiadan',function(req,res){     //帮帮忙添加订单处理
     if(req.query.judge==0)  xiadan.insertLogistics(req,res);
-    //if(req.query.judge==null) res.redirect('./WWW/404/QYZQ.html');
+    if(req.query.judge==null) res.redirect('./WWW/404/QYZQ.html');
 });
 
 server.use('/yx',function(req,res){        //前台调用，返还订单接口
@@ -74,6 +75,7 @@ server.use('/yx',function(req,res){        //前台调用，返还订单接口
     if(req.query.judge==2)  logistics.selectAll(req,res);
     if(req.query.judge==4)  logistics.selectOneByOpenid(req,res);
     if(req.query.judge==5)  logistics.selectOneByConditions(req,res); 
+    if(req.query.judge==6)  logistics.selectLimitPage(req,res); 
     if(req.query.judge==null) res.redirect('./WWW/404/QYZQ.html');
 });
 

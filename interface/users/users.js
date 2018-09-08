@@ -26,6 +26,19 @@ module.exports={
         }
         sel(req,res);
     },
+    //查询用户all
+    selectSchoolByOpenid:function(req,res){
+        var openid=req.query.openid;
+        function sel(req,res){            
+            var sql=`select * from users where openid="${openid}" ;`;
+            fun(sql);
+        }
+        async function fun(sql) {
+            const result = await promise.dbupAsync(sql);
+            res.send(result);
+        }
+        sel(req,res);
+    },
     //插入用户
     insertUsers:function(req,res){
         function sel(req,res){         
