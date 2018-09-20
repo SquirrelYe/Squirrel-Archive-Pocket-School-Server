@@ -107,6 +107,8 @@ server.use('/taker',function(req,res){        //大使对所接收订单进行�
     if(req.query.judge==4)  taker.setOrderArrive(req,res);  
     if(req.query.judge==5)  taker.setOrderCallBack(req,res);  
     if(req.query.judge==6)  taker.contactCustomer(req,res);  
+    if(req.query.judge==7)  taker.getOrderCallBack(req,res);  
+    if(req.query.judge==8)  taker.reCallback(req,res);  
     if(req.query.judge==null) res.redirect('./WWW/404/QYZQ.html');
 });
 

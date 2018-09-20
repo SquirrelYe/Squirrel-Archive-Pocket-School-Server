@@ -128,5 +128,40 @@ module.exports={
             }
         }
         sel(req,res);
+    },
+
+    //大使查看评价
+    getOrderCallBack:function(req,res){
+        function sel(req,res){            
+            var openid=req.query.openid;  
+            var choice_callback=req.query.choice_callback;
+            if(choice_callback=='0'){
+                var sql=`SELECT orders.number , logistics.icon_url , logistics.nickname , orders.callback_time , orders.types, orders.cus_callback, orders.details , orders.money ,orders.tak_callback  FROM logistics JOIN orders on logistics.number = orders.number AND orders.openid_tak="${openid}" and orders.tak_callback <>'';`;
+            }else{
+                var sql=`SELECT orders.number , logistics.icon_url , logistics.nickname , orders.callback_time , orders.types, orders.cus_callback, orders.details , orders.money ,orders.tak_callback  FROM logistics JOIN orders on logistics.number = orders.number AND orders.openid_tak="${openid}" and orders.tak_callback ='' ;`;
+            }            
+            fun(sql,req,res);
+        }
+        async function fun(sql,req,res) {
+            const result = await promise.dbupAsync(sql);
+            res.send(result);
+        }
+        sel(req,res);
+    },
+    
+    //大使回复用户评价
+    reCallback:function(req,res){
+        function sel(req,res){            
+            var number=req.query.number;
+            var tak_callback=req.query.tak_callback;
+            var openid_tak=req.query.openid_tak;
+            var sql=`UPDATE orders SET tak_callback="${tak_callback}" WHERE number="${number}" and openid_tak="${openid_tak}";`;
+            fun(sql,req,res);
+        }
+        async function fun(sql,req,res) {
+            const result = await promise.dbupAsync(sql);
+            res.send(result);
+        }
+        sel(req,res);
     }
 }

@@ -24,12 +24,14 @@
     "request": "*"
   },
   "dependencies": {
-    "express": "*",
     "body-parser": "*",
-    "multer": "*",
+    "express": "*",
     "fs": "*",
+    "multer": "*",
+    "mysql": "*",
+    "nodemailer": "^4.6.8",
+    "nodemailer-smtp-transport": "^2.7.4",
     "path": "*",
-    "request": "*",
-    "mysql": "*"
+    "request": "*"
   }
 }

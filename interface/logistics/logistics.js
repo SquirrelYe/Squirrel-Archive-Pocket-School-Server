@@ -67,10 +67,15 @@ module.exports={
     //查询limit物流信息 
     selectLimitPage:function(req,res){
         var from = req.query.from;
-        var offSet = req.query.offSet;
-        function sel(req,res){            
-            var sql=`select * from logistics order by number desc limit ${from},${offSet};`;
-            fun(sql);
+        var offSet = req.query.offSet;   
+        var type=req.query.type;
+        function sel(req,res){   
+            if(type=='0'){
+                var sql=`select * from logistics order by number desc limit ${from},${offSet};`;
+            }else{
+                var sql=`select * from logistics where type="${type}" order by number desc limit ${from},${offSet};`;
+            }  
+             fun(sql);
         }
         async function fun(sql) {
             const result = await promise.dbupAsync(sql);
