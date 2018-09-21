@@ -1,6 +1,8 @@
 const promise=require('../../Promise/promise')
 const fs=require('fs');
 const path=require('path');
+const mail=require('../mail/mail');
+
 var pathlib=path;
 module.exports={
     
@@ -19,7 +21,8 @@ module.exports={
             fun(sql);
             async function fun(sql) {
                 const result = await promise.dbupAsync(sql);
-                res.send(result);
+                mail.rz_dashi(req,res)
+                //res.send(result);
             }
         }
         ins(req,res);

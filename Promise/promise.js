@@ -1,7 +1,7 @@
 const mysql=require('mysql');
 
 function con(){
-    var db=mysql.createPool({
+    var db=mysql.createConnection({
         host:'localhost',
         user:'root',
         password:'yexuan0628',
@@ -16,10 +16,12 @@ module.exports={
             var db=con();
             db.query(sql,(err,data)=>{
                 if(err){
-                    resolve(`{ "success": "false" }`);          
+                    resolve(`{ "success": "false" }`);    
+                    db.end();      
                 }
                 else{
                     resolve(data);
+                    db.end();      
                 }
             });
         });
