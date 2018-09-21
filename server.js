@@ -97,6 +97,7 @@ server.use('/customer',function(req,res){        //用户对所发布订单进�
     if(req.query.judge==4)  customer.reMinder(req,res);
     if(req.query.judge==5)  customer.contactTaker(req,res);
     if(req.query.judge==6)  customer.commitCallback(req,res);
+    if(req.query.judge==7)  customer.setOrderComplete(req,res);
     if(req.query.judge==null) res.redirect('./WWW/404/QYZQ.html');
 });
 

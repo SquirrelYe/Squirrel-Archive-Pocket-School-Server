@@ -136,9 +136,9 @@ module.exports={
             var openid=req.query.openid;  
             var choice_callback=req.query.choice_callback;
             if(choice_callback=='0'){
-                var sql=`SELECT orders.number , logistics.icon_url , logistics.nickname , orders.callback_time , orders.types, orders.cus_callback, orders.details , orders.money ,orders.tak_callback  FROM logistics JOIN orders on logistics.number = orders.number AND orders.openid_tak="${openid}" and orders.tak_callback <>'';`;
+                var sql=`SELECT orders.number , logistics.icon_url , logistics.nickname , orders.callback_time , orders.types, orders.cus_callback, orders.details , orders.money ,orders.tak_callback  FROM logistics JOIN orders on logistics.number = orders.number AND orders.openid_tak="${openid}" and orders.tak_callback <>'0';`;
             }else{
-                var sql=`SELECT orders.number , logistics.icon_url , logistics.nickname , orders.callback_time , orders.types, orders.cus_callback, orders.details , orders.money ,orders.tak_callback  FROM logistics JOIN orders on logistics.number = orders.number AND orders.openid_tak="${openid}" and orders.tak_callback ='' ;`;
+                var sql=`SELECT orders.number , logistics.icon_url , logistics.nickname , orders.callback_time , orders.types, orders.cus_callback, orders.details , orders.money ,orders.tak_callback  FROM logistics JOIN orders on logistics.number = orders.number AND orders.openid_tak="${openid}" and orders.tak_callback ='0' ;`;
             }            
             fun(sql,req,res);
         }

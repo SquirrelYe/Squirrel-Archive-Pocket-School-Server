@@ -6,14 +6,13 @@ module.exports={
         function upd(req,res){
             var number=req.query.number;
             var types=req.query.types;
-            var openid_cus=req.query.openid_cus;
+            var tak_name=req.query.tak_name;
             var openid_tak=req.query.openid_tak;
             var conditions=req.query.conditions;
             var cus_phone=req.query.cus_phone;
             var tak_phone=req.query.tak_phone;
             var sql=`UPDATE logistics SET conditions=2 WHERE number="${number}";`;
-            var sql1=`insert into orders(number,types,openid_cus,openid_tak,conditions,get_time,cus_phone,tak_phone)
-             values("${number}","${types}","${openid_cus}","${openid_tak}","${conditions}","${time.getTime()}","${cus_phone}","${tak_phone}");`;
+            var sql1=`update orders set openid_tak="${openid_tak}",conditions="${conditions}",tak_name="${tak_name}",get_time="${time.getTime()}",tak_phone="${tak_phone}" WHERE number="${number}";`;
              console.log(sql1)
             upAllDB(sql,sql1);
         };

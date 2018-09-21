@@ -116,4 +116,25 @@ module.exports={
         sel(req,res);
     },
 
+    //用户设置订单已完成 complete
+    setOrderComplete:function(req,res){
+        function sel(req,res){            
+            var number=req.query.number;
+            var sql=`UPDATE orders SET conditions="4" WHERE number="${number}";`;
+            console.log(sql)
+            fun(sql,req,res);
+        }
+        async function fun(sql,req,res) {
+            var number=req.query.number;
+            const result = await promise.dbupAsync(sql);
+            if(result.affectedRows==1){                
+                var sql1=`UPDATE logistics SET conditions="4" WHERE number="${number}";`;
+                console.log(sql1)
+                const result1 = await promise.dbupAsync(sql1);
+                res.send(result1);
+            }
+        }
+        sel(req,res);
+    },
+
 }

@@ -1,4 +1,5 @@
 const promise=require('../../Promise/promise')
+const time=require('../../time/time');
 module.exports={
     //查询最后一条记录的number
     //将用户传来的数据保存到数据库
@@ -34,9 +35,23 @@ module.exports={
                 var sql1=`insert into logistics values 
                          ("${number}","${openid}","${type}","${icon_url}","${nickname}","${gander}","${location}","${details}","${conditions}","${sum}","${money}"
                          ,"${time}","${log_from}","${log_to}","${others}","${time_log}","${key_info}","${key_name}","${key_phone}");`;
-                         console.log(sql1)
+                         //console.log(sql1)
+
+                var sql2=`insert into orders(number,types,openid_cus,conditions,cus_name,icon,details,sum,money,create_time,cus_phone,cus_callback,tak_callback)
+                        values("${number}","${type}","${openid}","${conditions-1}","${nickname}","${icon_url}","${details}","${sum}","${money}","${time}","${key_phone}","0","0");`;
+                        //console.log(sql2)
+
                 const result1 = await promise.dbupAsync(sql1);    
-                res.send(result1);
+                if(result1.affectedRows==1){         
+                    const result2 = await promise.dbupAsync(sql2);
+                    if(result2.affectedRows==1){
+                        res.send(`{ "success": "true" }`)
+                    }else{
+                        res.send(`{ "success": "false" }`);
+                    }
+                }else{
+                    res.send(`{ "success": "false" }`);
+                } 
             }else{
                 res.redirect('../../WWW/404/index.html');
             }
