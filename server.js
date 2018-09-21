@@ -13,6 +13,7 @@ const customer=require('./interface/orders/customer/customer')
 const taker=require('./interface/orders/takers/taker')
 const schoolChoose=require('./interface/schoolChoose/schoolChoose')
 const mail = require('./interface/mail/mail')
+const check=require('./interface/check/check')
 
 var objmulter=multer({dest:"./Authenticate/Icon"});    //dest指定上传文件地址
 var pathlib=path;
@@ -120,5 +121,15 @@ server.use('/school_choose',function(req,res){        //大使对所接收订单
 
 server.use('/mail',function(req,res){        //邮箱验证
     if(req.query.judge==0)  mail.register(req,res); 
+    if(req.query.judge==null) res.redirect('./WWW/404/QYZQ.html');
+});
+
+server.use('/check',function(req,res){        //用户（大使）查询自己接收的订单
+    if(req.query.judge==0)  check.selectOrdByOpenid(req,res); 
+    if(req.query.judge==1)  check.selectTotalOutputMoney(req,res); 
+    if(req.query.judge==2)  check.selectTotalInputMoney(req,res); 
+    if(req.query.judge==3)  check.selectOrdInputByOpenid(req,res); 
+    if(req.query.judge==4)  check.selectOrdLike(req,res); 
+    if(req.query.judge==5)  check.selectQuick(req,res); 
     if(req.query.judge==null) res.redirect('./WWW/404/QYZQ.html');
 });
