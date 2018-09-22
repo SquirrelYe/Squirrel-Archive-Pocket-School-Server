@@ -54,10 +54,10 @@ module.exports={
             var data=req.query.data;
             // 参考链接：https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=ACCESS_TOKEN
             var url=`https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=${access_token}`;
-            fun(url,data);
-            console.log(url,data)
+            fun(url,data,res);
+            //console.log(url,data)
         }
-        function fun(url,data) {
+        function fun(url,data,res) {
             request({
                 url: url,
                 method: "POST",
@@ -65,10 +65,11 @@ module.exports={
                 headers: {
                     "content-type": "application/json",
                 },
-                body: data
+                body: JSON.parse(data)
             }, function (error, response, body) {
                 if (!error && response.statusCode == 200) {
                     console.log(body) // 请求成功的处理逻辑
+                    res.send(body)
                 }
             });
         }

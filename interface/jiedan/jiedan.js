@@ -13,7 +13,7 @@ module.exports={
             var tak_phone=req.query.tak_phone;
             var sql=`UPDATE logistics SET conditions=2 WHERE number="${number}";`;
             var sql1=`update orders set openid_tak="${openid_tak}",conditions="${conditions}",tak_name="${tak_name}",get_time="${time.getTime()}",tak_phone="${tak_phone}" WHERE number="${number}";`;
-             console.log(sql1)
+            //console.log(sql1)
             upAllDB(sql,sql1);
         };
         async function upAllDB(sql,sql1) {
