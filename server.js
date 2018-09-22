@@ -8,7 +8,7 @@ const jiedan=require('./interface/jiedan/jiedan')
 const users=require('./interface/users/users')
 const xiadan=require('./interface/xiadan/xiadan')
 const logistics=require('./interface/logistics/logistics')
-const openid_unionid=require('./interface/openid_unionid/openid_unionid')
+const wx_api=require('./interface/wx_api/wx_api')
 const customer=require('./interface/orders/customer/customer')
 const taker=require('./interface/orders/takers/taker')
 const schoolChoose=require('./interface/schoolChoose/schoolChoose')
@@ -84,8 +84,10 @@ server.post('/UploadRZIcon',function(req,res){     //获取前台用户上传的
     
 });
 
-server.use('/openid_unionid',function(req,res){        //前台调用，返还openid_unionid
-    if(req.query.judge==0)  openid_unionid.selectOpenidUnionid(req,res);
+server.use('/wx_api',function(req,res){        //前台调用，返还wx_api data
+    if(req.query.judge==0)  wx_api.selectOpenidUnionid(req,res);
+    if(req.query.judge==1)  wx_api.selectAccessToken(req,res);
+    if(req.query.judge==3)  wx_api.sendTemplateMsg(req,res);
     if(req.query.judge==null) res.redirect('./WWW/404/QYZQ.html');
 });
 
