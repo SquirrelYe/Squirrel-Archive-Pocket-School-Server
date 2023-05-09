@@ -1,3 +1,3 @@
-var str="lalala";
-var s=`asasasas+ ${str}`;
+var str = 'lalala';
+var s = `asasasas+ ${str}`;
 console.log(s);

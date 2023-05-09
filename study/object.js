@@ -1,6 +1,6 @@
-var school=new Object;
+var school = new Object();
 
-school.student="lalala";
+school.student = 'lalala';
 console.log(school.student);
 
-module.exports=school;
+module.exports = school;

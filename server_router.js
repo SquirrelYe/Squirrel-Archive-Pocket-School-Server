@@ -1,18 +1,18 @@
-const express=require('express');
+const express = require('express');
 
-var server=express();
+var server = express();
 
 //目录一 /user/
-var routerUser=express.Router();
+var routerUser = express.Router();
 
-routerUser.get('/login.html',function(req,res){
-    res.send('login....');
+routerUser.get('/login.html', function (req, res) {
+  res.send('login....');
 });
 
-routerUser.get('/index.html',function(req,res){
-    res.send('index....');
+routerUser.get('/index.html', function (req, res) {
+  res.send('index....');
 });
 
-server.use('/user',routerUser);
+server.use('/user', routerUser);
 
 server.listen(11111);

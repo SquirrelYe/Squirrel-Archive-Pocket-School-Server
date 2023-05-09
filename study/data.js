@@ -1,7 +1,7 @@
 //控制时间格式
-function toDou(n){              
-    return n<10?'0'+n:''+n;
-  }
+function toDou(n) {
+  return n < 10 ? '0' + n : '' + n;
+}
 
 //几种不一样的时间表示
 //1.
@@ -17,30 +17,25 @@ myDate.getMinutes(); //获取当前分钟数(0-59)
 myDate.getSeconds(); //获取当前秒数(0-59)
 myDate.getMilliseconds(); //获取当前毫秒数(0-999)
 myDate.toLocaleDateString(); //获取当前日期
-var mytime=myDate.toLocaleTimeString(); //获取当前时间
-myDate.toLocaleString( ); //获取日期与时间
+var mytime = myDate.toLocaleTimeString(); //获取当前时间
+myDate.toLocaleString(); //获取日期与时间
 
 //两种不一样的时间显示
-console.log(myDate);           //-->2018-07-21T09:42:35.348Z
-console.log(                   //-->2018-07-21 17:42:35
-    myDate.getFullYear()+'-'+
-    toDou(myDate.getMonth()+1)+'-'+
-    toDou(myDate.getDate())+' '+
-    toDou(myDate.getHours())+':'+
-    toDou(myDate.getMinutes())+':'+
-    toDou(myDate.getSeconds())
-)
+console.log(myDate); //-->2018-07-21T09:42:35.348Z
+console.log(
+  //-->2018-07-21 17:42:35
+  myDate.getFullYear() + '-' + toDou(myDate.getMonth() + 1) + '-' + toDou(myDate.getDate()) + ' ' + toDou(myDate.getHours()) + ':' + toDou(myDate.getMinutes()) + ':' + toDou(myDate.getSeconds())
+);
 
 // 1532166918000    下面的结果
 // 1532166918960
 // 1532166918960
 //2.
-var timestamp1 =Date.parse(new Date());
+var timestamp1 = Date.parse(new Date());
 console.log(timestamp1);
 //3.
-var timestamp2 =(new Date()).valueOf();
+var timestamp2 = new Date().valueOf();
 console.log(timestamp2);
 //4.
-var timestamp3=new Date().getTime();
+var timestamp3 = new Date().getTime();
 console.log(timestamp3);
-

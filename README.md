@@ -1,39 +1,22 @@
-# PocketSchool
+# Squirrel-Archive-Pocket-School-Server 「布袋校园」
 
-#### 项目介绍
-{**以下是码云平台说明，您可以替换为您的项目简介**
-码云是开源中国推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用码云实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+> 🌚 警告：这个仓库包含了一个古老的项目，它可能已经无法在现代环境中正常运行。我们保留这个仓库是为了记录历史，但是请注意，如果你尝试使用这个项目，可能会遇到各种问题和兼容性问题。
 
-#### 软件架构
-软件架构说明
+### 项目归档
 
+- Author: 风继续吹 <ceo@yexuan.site>
+- Date:   Sun Aug 26 18:54:08 2018 +0800
 
-#### 安装教程
+### 项目简介
 
-1. xxxx
-2. xxxx
-3. xxxx
+这个项目是2018年「大二」和天津职业技术师范大学的同学一起完成的，是一个服务于校园的一站式平台，项目包含了一个微信小程序、一个后台管理系统和一个后端服务。当前项目已经归档，不再维护。
 
-#### 使用说明
+### 项目贡献
 
-1. xxxx
-2. xxxx
-3. xxxx
+虽然这个项目已经很古老，但我们仍然欢迎对其进行改进和维护。如果你对这个项目感兴趣，可以：
 
-#### 参与贡献
-
-1. Fork 本项目
-2. 新建 Feat_xxx 分支
-3. 提交代码
-4. 新建 Pull Request
-
-
-#### 码云特技
-
-1. 使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2. 码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3. 你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4. [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5. 码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6. 码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+1. Fork 这个仓库
+2. 创建你的特性分支 (git checkout -b my-new-feature)
+3. 提交你的更改 (git commit -am 'Add some feature')
+4. 将你的更改推送到特性分支 (git push origin my-new-feature)
+5. 创建一个新的 Pull Request
