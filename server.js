@@ -37,7 +37,7 @@ server.use('/', function (req, res, next) {
   next();
 });
 server.get('/index', function (req, res) {
-  res.redirect('./www/index/index.html');
+  res.redirect('./static/index/index.html');
 });
 
 server.use('/authenticate', function (req, res) {
@@ -50,14 +50,14 @@ server.use('/authenticate', function (req, res) {
   if (req.query.judge == 5) authenticate.selectOneBySchool(req, res);
   if (req.query.judge == 6) authenticate.UploadRZIcon1(req, res);
   if (req.query.judge == 7) authenticate.UploadRZIcon2(req, res);
-  if (req.query.judge == null) res.redirect('./www/404/QYZQ.html');
+  if (req.query.judge == null) res.redirect('./static/404/QYZQ.html');
 });
 
 server.use('/jiedan', function (req, res) {
   //用户下单
   if (req.query.judge == 0) jiedan.update(req, res);
   if (req.query.judge == 1) jiedan.selectOneByNumber(req, res);
-  if (req.query.judge == null) res.redirect('./www/404/QYZQ.html');
+  if (req.query.judge == null) res.redirect('./static/404/QYZQ.html');
 });
 
 server.use('/users', function (req, res) {
@@ -66,13 +66,13 @@ server.use('/users', function (req, res) {
   if (req.query.judge == 1) users.selectAllUsers(req, res);
   if (req.query.judge == 2) users.insertUsers(req, res);
   if (req.query.judge == 3) users.selectSchoolByOpenid(req, res);
-  if (req.query.judge == null) res.redirect('./www/404/QYZQ.html');
+  if (req.query.judge == null) res.redirect('./static/404/QYZQ.html');
 });
 
 server.use('/xiadan', function (req, res) {
   //帮帮忙添加订单处理
   if (req.query.judge == 0) xiadan.insertLogistics(req, res);
-  if (req.query.judge == null) res.redirect('./www/404/QYZQ.html');
+  if (req.query.judge == null) res.redirect('./static/404/QYZQ.html');
 });
 
 server.use('/yx', function (req, res) {
@@ -83,7 +83,7 @@ server.use('/yx', function (req, res) {
   if (req.query.judge == 4) logistics.selectOneByOpenid(req, res);
   if (req.query.judge == 5) logistics.selectOneByConditions(req, res);
   if (req.query.judge == 6) logistics.selectLimitPage(req, res);
-  if (req.query.judge == null) res.redirect('./www/404/QYZQ.html');
+  if (req.query.judge == null) res.redirect('./static/404/QYZQ.html');
 });
 
 server.post('/UploadRZIcon', function (req, res) {
@@ -95,7 +95,7 @@ server.use('/wx_api', function (req, res) {
   if (req.query.judge == 0) wx_api.selectOpenidUnionid(req, res);
   if (req.query.judge == 1) wx_api.selectAccessToken(req, res);
   if (req.query.judge == 3) wx_api.sendTemplateMsg(req, res);
-  if (req.query.judge == null) res.redirect('./www/404/QYZQ.html');
+  if (req.query.judge == null) res.redirect('./static/404/QYZQ.html');
 });
 
 server.use('/customer', function (req, res) {
@@ -108,7 +108,7 @@ server.use('/customer', function (req, res) {
   if (req.query.judge == 5) customer.contactTaker(req, res);
   if (req.query.judge == 6) customer.commitCallback(req, res);
   if (req.query.judge == 7) customer.setOrderComplete(req, res);
-  if (req.query.judge == null) res.redirect('./www/404/QYZQ.html');
+  if (req.query.judge == null) res.redirect('./static/404/QYZQ.html');
 });
 
 server.use('/taker', function (req, res) {
@@ -122,20 +122,20 @@ server.use('/taker', function (req, res) {
   if (req.query.judge == 6) taker.contactCustomer(req, res);
   if (req.query.judge == 7) taker.getOrderCallBack(req, res);
   if (req.query.judge == 8) taker.reCallback(req, res);
-  if (req.query.judge == null) res.redirect('./www/404/QYZQ.html');
+  if (req.query.judge == null) res.redirect('./static/404/QYZQ.html');
 });
 
 server.use('/school_choose', function (req, res) {
   //大使对所接收订单进行管理
   if (req.query.judge == 0) schoolChoose.selectSchoolByUserOpenid(req, res);
   if (req.query.judge == 1) schoolChoose.read(req, res);
-  if (req.query.judge == null) res.redirect('./www/404/QYZQ.html');
+  if (req.query.judge == null) res.redirect('./static/404/QYZQ.html');
 });
 
 server.use('/mail', function (req, res) {
   //邮箱验证
   if (req.query.judge == 0) mail.register(req, res);
-  if (req.query.judge == null) res.redirect('./www/404/QYZQ.html');
+  if (req.query.judge == null) res.redirect('./static/404/QYZQ.html');
 });
 
 server.use('/check', function (req, res) {
@@ -146,10 +146,10 @@ server.use('/check', function (req, res) {
   if (req.query.judge == 3) check.selectOrdInputByOpenid(req, res);
   if (req.query.judge == 4) check.selectOrdLike(req, res);
   if (req.query.judge == 5) check.selectQuick(req, res);
-  if (req.query.judge == null) res.redirect('./www/404/QYZQ.html');
+  if (req.query.judge == null) res.redirect('./static/404/QYZQ.html');
 });
 
 server.use('/tuling_api', function (req, res) {
   if (req.query.judge == 1) tuling_api.sendTulingMsg(req, res);
-  if (req.query.judge == null) res.redirect('./www/404/QYZQ.html');
+  if (req.query.judge == null) res.redirect('./static/404/QYZQ.html');
 });
